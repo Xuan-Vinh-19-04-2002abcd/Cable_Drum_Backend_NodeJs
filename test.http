@@ -1,0 +1,124 @@
+GET  http://localhost:3000/api/v1/products
+###
+
+POST http://localhost:3000/api/v1/products
+Content-Type: application/json
+
+{
+  "name":"vinh 1",
+  "image":"some url 1",
+  "countInStock": 600
+}
+###
+POST http://localhost:3000/api/v1/users/user
+Content-Type: application/json
+
+{
+  "id": 6,
+  "username": "Đặng Quốc Vượng",
+  "password": "12345678918",
+  "role": "Vendor",
+  "email": "vuong.dang23@student.passerellesnumeriques.org"
+}
+###
+POST http://localhost:3000/api/v1/contracts/contract
+Content-Type: application/json
+
+{
+  "supplyVendorId": "648292846ee7d04c0bc6d42b",
+  "startDate": "2023-04-11",
+  "endDate": "2024-12-17",
+  "contractAmount": 500
+}
+###
+POST http://localhost:3000/api/v1/requests/request
+Content-Type: application/json
+
+{
+  "phannerUserId": "648292226ee7d04c0bc6d427",
+  "supperVendorId": "648292846ee7d04c0bc6d42b",
+  "quantity": 100,
+  "projectContractorUserId": "648292e46ee7d04c0bc6d42f",
+  "status": "Really To Collect"
+}
+
+###
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+"email": "admin@example.com",
+  "password": "123456789"
+}
+###
+POST http://localhost:3000/api/v1/users/search
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDgyOTFjYjZlZTdkMDRjMGJjNmQ0MjUiLCJpYXQiOjE2ODYzNjI4NzIsImV4cCI6MTY4NzIyNjg3Mn0.rQW9krQCW0YO9-267ZL2Y0WStwefOMhuzKHQrnN-Xug
+
+{
+ "text": ""
+}
+
+###
+GET  http://localhost:3000/api/v1/contracts
+
+###
+POST http://localhost:3000/api/v1/users/role
+Content-Type: application/json
+
+{
+  "role": "Contractor"
+}
+###
+POST http://localhost:3000/api/v1/requests/request
+Content-Type: application/json
+
+{
+"vendorUsername": "Đào Thị Cao",
+"plannerUsername": "Lê Văn Bão",
+"quantity": 100,
+"contractorUsername": "Trịnh Văn Kiên"
+}
+###
+
+POST http://localhost:3000/api/v1/requests/vendorRequest
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDgyOTFjYjZlZTdkMDRjMGJjNmQ0MjUiLCJpYXQiOjE2ODYzNjI4NzIsImV4cCI6MTY4NzIyNjg3Mn0.rQW9krQCW0YO9-267ZL2Y0WStwefOMhuzKHQrnN-Xug
+
+
+{
+"supperVendorId": "648292846ee7d04c0bc6d42b"
+}
+
+###
+POST http://localhost:3000/api/v1/requests/contractorRequest
+Content-Type: application/json
+
+{
+  "projectContractorUserId": "648293086ee7d04c0bc6d431"
+}
+###
+POST http://localhost:3000/api/v1/requests/status
+Content-Type: application/json
+
+{
+  "requestId": "6482ce0247299c6faa8104ad",
+  "status": "Really To Collect "
+}
+###
+GET  http://localhost:3000/api/v1/users
+###
+POST http://localhost:3000/api/v1/users/email
+Content-Type: application/json
+
+{
+  "email": "xuandangvinh@gmail.com",
+  "quantity": "50"
+}
+###
+POST http://localhost:3000/api/v1/contracts/vendor
+Content-Type: application/json
+
+{
+  "suppervendorId": "648292ab6ee7d04c0bc6d42d"
+}
