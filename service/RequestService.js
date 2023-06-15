@@ -38,8 +38,8 @@ async function getAllRequests(supperVendorId) {
                 const plannerUser = await User.findById(phannerUserId).exec();
                 const contractorUser = await User.findById(projectContractorUserId).exec();
 
-                const plannerUsername = plannerUser?.username;
-                const contractorUsername = contractorUser?.username;
+                const plannerUsername = plannerUser ? plannerUser.username : undefined;
+                const contractorUsername = contractorUser ? contractorUser.username : undefined;
 
                 return {
                     ...rest,
@@ -65,8 +65,8 @@ async function getAllRequestsContractor(projectContractorUserId) {
                 const plannerUser = await User.findById(phannerUserId).exec();
                 const vendorUser = await User.findById(supperVendorId).exec();
 
-                const plannerUsername = plannerUser?.username;
-                const vendorUsername = vendorUser?.username;
+                const plannerUsername = plannerUser && plannerUser.username;
+                const vendorUsername = vendorUser && vendorUser.username;
 
                 return {
                     ...rest,
@@ -120,9 +120,10 @@ async function updateRequestStatus(requestId, status) {
         const plannerUser = await User.findById(phannerUserId).exec();
         const vendorUser = await User.findById(supperVendorId).exec();
         const projectUsername = await User.findById(projectContractorUserId).exec();
-        const plannerUsername = plannerUser?.username;
-        const vendorUsername = vendorUser?.username;
-        const contractorUsername = projectUsername?.username;
+        const plannerUsername = plannerUser && plannerUser.username;
+        const vendorUsername = vendorUser && vendorUser.username;
+        const contractorUsername = projectUsername && projectUsername.username;
+
 
         const formattedRequest = {
             ...rest,
