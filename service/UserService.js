@@ -26,4 +26,14 @@ function getUsersByRole(role) {
 
     return User.find(query);
 }
-export {getAllUsers,searchUsers,getUsersByRole} ;
+
+async function deleteUser(userId) {
+    try {
+        await User.deleteOne({ _id:userId });
+        return { message: "Delete Successfully", status: 200 };
+    } catch (error) {
+        return { message: "Delete Failed", status: 500 };
+    }
+}
+
+export {getAllUsers,searchUsers,getUsersByRole,deleteUser} ;

@@ -31,7 +31,7 @@ mongoose.connect(process.env.CONNECTION_STRING, {
     }).catch((error) => {
         console.error('Lỗi kết nối MongoDB:', error);
     });
-app.listen(3000,()=> {
+app.listen(3002,()=> {
     console.log(api);
-    console.log("Server is running http://localhost:3000")
+    console.log("Server is running http://localhost:3002")
 })

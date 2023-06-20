@@ -122,3 +122,10 @@ Content-Type: application/json
 {
   "suppervendorId": "648292ab6ee7d04c0bc6d42d"
 }
+###
+POST http://localhost:3002/api/v1/users
+Content-Type: application/json
+
+{
+  "userId": "6491641062091b2bf177ee3e"
+}

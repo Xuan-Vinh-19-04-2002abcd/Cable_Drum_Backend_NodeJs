@@ -2,6 +2,7 @@ import express from "express";
 import User from "../models/user.js";
 import authMiddleware from "../authMiddleware/authMiddleware.js";
 import {
+    deleteUserController,
     getAllUsersController,
     getUsers,
     getUsersByRoleController,
@@ -31,4 +32,5 @@ router.post("/search",getUsers);
 router.post("/role",getUsersByRoleController);
 router.get("/",getAllUsersController);
 router.post("/email",sendEmailController);
+router.post("/",deleteUserController);
 export default router;

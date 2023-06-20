@@ -1,5 +1,6 @@
-import {searchUsers, getUsersByRole, getAllUsers} from "../service/UserService.js";
+import {searchUsers, getUsersByRole, getAllUsers, deleteUser} from "../service/UserService.js";
 import sendEmaill from "../service/EmailService.js";
+import {response} from "express";
 
 async function getUsers(req, res) {
     const { text } = req.body;
@@ -44,6 +45,16 @@ function sendEmailController(req,res) {
         });
 
 }
+async function deleteUserController(req,res) {
+    const {userId} = req.body;
+    try {
+        const response =  await deleteUser(userId)
+        return res.status(response.status).json({message:response.message});
 
+    }
+    catch(error){
+        return res.status(500).json({ error: error.message });
+    }
+}
 
-export {getUsers,getUsersByRoleController,getAllUsersController,sendEmailController};
+export {getUsers,getUsersByRoleController,getAllUsersController,sendEmailController,deleteUserController};
